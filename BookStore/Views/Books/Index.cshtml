@@ -6,7 +6,7 @@
 
 
 @using BookStore.Models
-@model IEnumerable<Sach>
+@model IEnumerable<BookStore.Models.Sach>
 
 
     <!-- End Bradcaump area -->
@@ -69,13 +69,14 @@
                             <h3 class="wedget__title">Product Tags</h3>
                            
                             <ul>
-                                @{
+                                @*@{
                                     var ListBookCates = ViewBag.ListBookCate as IEnumerable<Chude>;
                                 }
                                 @foreach (Chude i in ListBookCates)
                                 {
                                     <li><a href="#">@i.Tenchude</a></li>
-                                }
+                                }*@
+                                @Html.Action("GetProductTag","Books")
 
                             </ul>
                             
@@ -116,10 +117,10 @@
                         <div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
                             <div class="row">
                                 <!-- Start Single Product -->
-                                @{ 
+                                @*@{ 
                                     var lstAllBooks = ViewBag.ListAllBooks as IEnumerable<Sach>;
-                                }
-                                @foreach (Sach i in lstAllBooks)
+                                }*@
+                                @foreach (Sach i in Model)
                                 {
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                                     <div class="product">
