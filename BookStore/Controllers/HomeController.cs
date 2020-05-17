@@ -20,10 +20,12 @@ namespace BookStore.Controllers
             return context.Chudes.Where(i => i.Tenchude != null).ToList();
         }
 
+
         private List<Sach> GetAllBooks()
         {
             return context.Saches.ToList();
         }
+
         public ActionResult Index()
         {
 
