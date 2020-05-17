@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookStore.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,10 +11,15 @@ namespace BookStore.Controllers
     {
         // GET: DetailProduct
 
-        public ActionResult Index()
+        private Model1 context = new Model1();
+
+        public ActionResult Index(int id= 1008)
         {
-            return View();
+            var sach = context.Saches.Where(i => i.Masach == id).FirstOrDefault();
+            return View(sach);
         }
+
+
 
 
     }
