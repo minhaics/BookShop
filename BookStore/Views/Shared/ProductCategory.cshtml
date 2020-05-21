@@ -1,0 +1,22 @@
+﻿<aside class="wedget__categories poroduct--cat">
+    <h3 class="wedget__title">Product Categories</h3>
+    <ul>
+        @{ 
+            var category = ViewBag.category as IEnumerable<BookStore.Models.Chude>;
+
+        }
+        
+        @{
+            int dem = 0;
+            foreach (var it in category)
+            {             
+                var count = new int[100];
+                count = ViewBag.countBook;
+            <li><a href="@Url.Action("BookByCategory", "Books", new { id = it.Macd })">@it.Tenchude <span>
+                (@count[dem])</span></a></li>
+                dem++;
+            }
+    }
+
+    </ul>
+</aside>
