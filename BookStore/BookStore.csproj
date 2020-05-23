@@ -236,7 +236,7 @@
     <Content Include="Content\images\books\12.jpg" />
     <Content Include="Content\images\books\2.jpg" />
     <Content Include="Content\images\books\3.jpg" />
-    <Content Include="Content\images\books\4.jpg" />
+    <Content Include="Content\images\books\15.jpg" />
     <Content Include="Content\images\books\5.jpg" />
     <Content Include="Content\images\books\6.jpg" />
     <Content Include="Content\images\books\7.jpg" />
@@ -312,13 +312,12 @@
     <Content Include="Content\images\portfolio\md-img\8.jpg" />
     <Content Include="Content\images\portfolio\md-img\9.jpg" />
     <Content Include="Content\images\pos-bg\19.jpeg" />
-    <Content Include="Content\images\product\1.jpg" />
+    <Content Include="Content\images\books\13.jpg" />
     <Content Include="Content\images\product\10.jpg" />
     <Content Include="Content\images\product\11.jpg" />
     <Content Include="Content\images\product\12.jpg" />
     <Content Include="Content\images\product\2.jpg" />
-    <Content Include="Content\images\product\3.jpg" />
-    <Content Include="Content\images\product\4.jpg" />
+    <Content Include="Content\images\books\14.jpg" />
     <Content Include="Content\images\product\5.jpg" />
     <Content Include="Content\images\product\6.jpg" />
     <Content Include="Content\images\product\7.jpg" />
@@ -392,9 +391,15 @@
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
-    <Content Include="Views\Books\GetProductTag.cshtml" />
+    <Content Include="Views\Shared\GetProductTag.cshtml" />
     <Content Include="Views\Books\SanPhamTheoChuDe.cshtml" />
     <Content Include="Views\DetailProduct\Index.cshtml" />
+    <Content Include="Views\Shared\ProductCategory.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\Filter.cshtml" />
+    <Content Include="Views\Books\BookByCategory.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
