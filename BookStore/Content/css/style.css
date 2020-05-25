@@ -2750,7 +2750,7 @@ Header Styles
         }
 
         .meninmenu li.drop .megamenu.mega03 {
-            width: 300px;
+            width: 400px;
         }
 
         .meninmenu li.drop .megamenu.mega04 {
@@ -2770,7 +2770,7 @@ Header Styles
         }
 
         .meninmenu li.drop .megamenu .item.item03 {
-            flex-basis: 33.33%;
+            flex-basis: 100%;
         }
 
         .meninmenu li.drop .megamenu .item.item04 {
