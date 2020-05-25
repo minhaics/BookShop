@@ -25,9 +25,13 @@ namespace BookStore.Models
         public string Diachikh { get; set; }
 
         [StringLength(20)]
+        [Required]
+        [MaxLength(20)]
         public string Dienthoaikh { get; set; }
 
         [StringLength(50)]
+        [Required]
+        [MaxLength(50)]
         public string Tendn { get; set; }
 
         [StringLength(100)]

@@ -1,0 +1,219 @@
+﻿@model BookStore.Models.common.UserLogin
+@{
+    ViewBag.Title = "Login_from";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+
+
+<!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+<!-- Main wrapper -->
+<div class="wrapper" id="wrapper">
+    <!-- Header -->
+    <!-- //Header -->
+    <!-- Start Search Popup -->
+    <div class="box-search-content search_active block-bg close__top">
+        <form id="search_mini_form" class="minisearch" action="#">
+            <div class="field__search">
+                <input type="text" placeholder="Search entire store here...">
+                <div class="action">
+                    <a href="#"><i class="zmdi zmdi-search"></i></a>
+                </div>
+            </div>
+        </form>
+        <div class="close__wrap">
+            <span>close</span>
+        </div>
+    </div>
+    <!-- End Search Popup -->
+    <!-- Start Bradcaump area -->
+    <!-- End Bradcaump area -->
+    <!-- Start My Account Area -->
+    <section class="my_account_area pt--80 pb--55 bg--white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <div class="my__account__wrapper">
+                        <h3 class="account__title">Login</h3>
+                        <form id="frmLogin" method="post" action="Login" onsubmit="return validate();">
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="account__form">
+                                <div class="input__box">
+                                    <label name="Username" id="Login.lblUsername">Username</label>
+                                    <input type="text" id="Login.Username" name="Username" onkeypress="validateUsername()" />
+                                    <span class="text-danger" id="Login_lblUsername_error"></span>
+                                </div>
+                                <div class="input__box">
+                                    <label name="Password" id="Login.lblPassword">Password</label>
+                                    <input type="password" id="Login.Password" name="Password" />
+                                    <span class="text-danger" id="Login_lblPassword_error"></span>
+                                </div>
+                                <div class="form__btn">
+                                    <button type="submit">Login</button>
+                                    <label class="label-for-checkbox">
+                                        <input id="rememberme" class="input-checkbox" name="rememberme" value="forever" type="checkbox">
+                                        <span>Remember me</span>
+                                    </label>
+                                </div>
+                                <a class="forget_pass" href="#">Lost your password?</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                    <div class="my__account__wrapper">
+
+                        <h3 class="account__title">Register</h3>
+                        <form action="">
+                            <div class="account__form">
+                                <div class="input__box">
+                                    <label id="lblEmail">Email address <span>*</span></label>
+                                    <input type="email" name="Email">
+                                </div>
+                                <div class="input__box">
+                                    <label id="lblUsername">Username <span>*</span></label>
+                                    <input type="text" name="Username" />
+                                </div>
+                                <div class="input__box">
+                                    <label id="lblFullname">Fullname</label>
+                                    <input type="text" name="Fullname" />
+                                </div>
+
+                                <div class="input__box">
+                                    <label id="lblPassword">Password<span>*</span></label>
+                                    <input type="password" name="Password">
+                                </div>
+                                <div class="form__btn">
+                                    <button id="Register" type="button">Register</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        function validateUsername() {
+            console.log('k')
+            var Username = $('#frmLogin input[name="Username"]').val();
+            if (!Username) {
+                $('#Login_lblUsername_error').html('Tài khoản không được để trống');
+                isValid = false;
+            } else {
+                var regex = /^[a-z0-9\.\-_]{5,32}$/ig;
+                if (!regex.test(Username)) {
+                    $('#Login_lblUsername_error').html('Tài khoản không hợp lệ');
+                    isValid = false;
+                }
+                else {
+                    $('#Login_lblUsername_error').html('');
+                }
+            }
+        }
+
+        function validate() {
+            let data = {};
+            data.Username = $('#frmLogin input[name="Username"]').val();
+            data.Password = $('#frmLogin input[name="Password"]').val();
+            var isValid = true;
+            if (!data.Username) {
+                $('#Login_lblUsername_error').html('Tài khoản không được để trống');
+                isValid = false;
+            } else {
+                var regex = /^[a-z0-9\.\-_]{5,32}$/ig;
+                if (!regex.test(data.Username)) {
+                    $('#Login_lblUsername_error').html('Tài khoản không hợp lệ');
+                    isValid = false;
+                }
+                else {
+                    $('#Login_lblUsername_error').html('');
+                }
+            }
+
+            if (!data.Password) {
+                $('#Login_lblPassword_error').html('Mật khẩu không được để trống');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+
+        //$('#formValidation').hide()
+        $('#Register').click(() => {
+            let data = {}
+            data.Hotenkh = $('input[name="Fullname"]').val()
+            data.Email = $('input[name="Email"]').val()
+            data.Tendn = $('input[name="Username"]').val()
+            data.Matkhau = $('input[name="Password"]').val()
+
+
+
+            if (!data.Fullname) {
+                document.getElementById('lblFullname').style.color = 'red';
+            }
+            else {
+                document.getElementById('lblFullname').style.color = 'black';
+            }
+            if (!data.Email) {
+                document.getElementById('lblEmail').style.color = 'red';
+            }
+            else {
+                document.getElementById('lblEmail').style.color = 'black';
+
+            }
+            if (!data.Tendn) {
+                document.getElementById('lblUsername').style.color = 'red';
+
+            }
+            else {
+                document.getElementById('lblUsername').style.color = 'black';
+
+            }
+            if (!data.Matkhau) {
+                document.getElementById('lblPassword').style.color = 'red';
+
+            }
+            else {
+                document.getElementById('lblPassword').style.color = 'black';
+
+            }
+
+
+            if (data.Hotenkh && data.Tendn && data.Email && data.Matkhau) {
+                $.ajax({
+                    url: '/User/AddUser',
+                    data: { user: data },
+                    method: 'POST',
+                    dataType: 'text',
+                    success: function (response) {
+                        var obj = JSON.parse(response)
+                        if (obj.status === true) {
+                            $(location).attr("href", '/User/Login_from')
+                        } else {
+                            alert(obj.message)
+                        }
+                    }
+                })
+            } else {
+                alert("Loi");
+            }
+
+        })
+
+        const validateForm = data => {
+
+        }
+
+    </script>
+    <!-- End My Account Area -->
+    <!-- Footer Area -->
+    <!-- //Footer Area -->
+
+</div>
+<!-- //Main wrapper -->
