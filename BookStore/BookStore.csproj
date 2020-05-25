@@ -489,6 +489,7 @@
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Books\GetProductTag.cshtml" />
     <Content Include="Views\Books\SanPhamTheoChuDe.cshtml" />
     <Content Include="Views\DetailProduct\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
