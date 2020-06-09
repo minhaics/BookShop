@@ -63,6 +63,7 @@ namespace BookStore.Controllers
         }
         public ActionResult GetProductTag(int? id)
         {
+
             ViewBag.book = GetBookByChude(id);
             var chude = from cd in context.Chudes select cd;
             return PartialView(chude);

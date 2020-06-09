@@ -69,8 +69,8 @@
                                 @if (Session["USER_SESSION"] == null)
                                 {
                                     <li><a href="/User/Login">My Account</a></li>
-                                    <li><a href="cart.html">Cart Page</a></li>
-                                    <li><a href="checkout.html">Checkout Page</a></li>
+                                    <li><a href="/Cart/index">Cart Page</a></li>
+                                    <li><a href="/Cart/Checkout">Checkout Page</a></li>
                                 }
                                 else
                                 {
@@ -127,7 +127,7 @@
                                             <span>$66.00</span>
                                         </div>
                                         <div class="mini_action checkout">
-                                            <a class="checkout__btn" href="cart.html">Go to Checkout</a>
+                                            <a class="checkout__btn" href="/Cart/Checkout">Go to Checkout</a>
                                         </div>
                                         <div class="single__items">
                                             <div class="miniproduct">
@@ -182,7 +182,7 @@
                                             </div>
                                         </div>
                                         <div class="mini_action cart">
-                                            <a class="cart__btn" href="cart.html">View and edit cart</a>
+                                            <a class="cart__btn" href="/Cart/Index">View and edit cart</a>
                                         </div>
                                     </div>
                                 </div>
