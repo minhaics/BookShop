@@ -50,7 +50,7 @@ namespace BookStore.Controllers
                     {
                         status = false,
                         message = khachhang.Tendn == user.Tendn
-                                ? "TenDang Nhap da ton tai"
+                                ? "Ten Dang Nhap da ton tai"
                                 : "Email da duoc su dung"
                     }) ;
                 }
@@ -69,7 +69,7 @@ namespace BookStore.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new { status = false, message = "" });
+                return Json(new { status = false, message = ex.Message });
             }
 
         }

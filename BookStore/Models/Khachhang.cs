@@ -25,7 +25,6 @@ namespace BookStore.Models
         public string Diachikh { get; set; }
 
         [StringLength(20)]
-        [Required]
         [MaxLength(20)]
         public string Dienthoaikh { get; set; }
 

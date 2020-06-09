@@ -15,7 +15,7 @@
     <!-- //Header -->
     <!-- Start Search Popup -->
     <div class="box-search-content search_active block-bg close__top">
-        <form id="search_mini_form" class="minisearch" action="#">
+        <form id="search_mini_form_1" class="minisearch" action="#">
             <div class="field__search">
                 <input type="text" placeholder="Search entire store here...">
                 <div class="action">
@@ -66,7 +66,7 @@
                     <div class="my__account__wrapper">
 
                         <h3 class="account__title">Register</h3>
-                        <form action="">
+                        <form id="registerForm" action="">
                             <div class="account__form">
                                 <div class="input__box">
                                     <label id="lblEmail">Email address <span>*</span></label>
@@ -147,10 +147,10 @@
         //$('#formValidation').hide()
         $('#Register').click(() => {
             let data = {}
-            data.Hotenkh = $('input[name="Fullname"]').val()
-            data.Email = $('input[name="Email"]').val()
-            data.Tendn = $('input[name="Username"]').val()
-            data.Matkhau = $('input[name="Password"]').val()
+            data.Hotenkh = $('#registerForm input[name="Fullname"]').val()
+            data.Email = $('#registerForm input[name="Email"]').val()
+            data.Tendn = $('#registerForm input[name="Username"]').val()
+            data.Matkhau = $('#registerForm input[name="Password"]').val()
 
 
 
@@ -186,6 +186,7 @@
 
 
             if (data.Hotenkh && data.Tendn && data.Email && data.Matkhau) {
+                console.log(data)
                 $.ajax({
                     url: '/User/AddUser',
                     data: { user: data },
@@ -194,9 +195,11 @@
                     success: function (response) {
                         var obj = JSON.parse(response)
                         if (obj.status === true) {
-                            $(location).attr("href", '/User/Login_from')
+                            if (confirm("Tạo tài khoản thành công !")) {
+                                $(location).attr("href", '/Home/Index')
+                            }
                         } else {
-                            alert(obj.message)
+                            alert(obj.message + obj.status)
                         }
                     }
                 })

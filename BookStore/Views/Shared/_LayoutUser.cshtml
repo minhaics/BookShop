@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 col-6 col-lg-2">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="/Home/index">
                                 <img src="/Content/images/logo/logo.png" alt="logo images">
                             </a>
                         </div>
@@ -52,12 +52,10 @@
                         <nav class="mainmenu__nav">
                             <ul class="meninmenu d-flex justify-content-start">
                                 <li class="drop with--one--item">
-                                    <a href="index.html">Home</a>
+                                    <a href="/Home/Index">Home</a>
                                     <div class="megamenu dropdown">
                                         <ul class="item item01">
-                                            <li><a href="index.html">Home Style Default</a></li>
-                                            <li><a href="index-2.html">Home Style Two</a></li>
-                                            <li><a href="index-box.html">Home Box Style</a></li>
+                                            
                                         </ul>
                                     </div>
                                 </li>
@@ -93,14 +91,14 @@
                                             @if (Session["USER_SESSION"] == null)
                                             {
 
-                                                <li><a href="/User/Login_from">My Account</a></li>
+                                                <li><a href="/User/Login">My Account</a></li>
                                                 <li><a href="cart.html">Cart Page</a></li>
                                                 <li><a href="checkout.html">Checkout Page</a></li>
                                                 <li><a href="error404.html">404 Page</a></li>
                                             }
                                             else
                                             {
-                                                <li><a href="/User/Login_from">My Account</a></li>
+                                                <li><a href="/User/Login">My Account</a></li>
                                                 <li><a href="cart.html">Cart Page</a></li>
                                                 <li><a href="checkout.html">Checkout Page</a></li>
                                                 <li><a href="error404.html">404 Page</a></li>

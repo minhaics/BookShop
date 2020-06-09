@@ -67,12 +67,12 @@ namespace BookStore.Controllers
             var chude = from cd in context.Chudes select cd;
             return PartialView(chude);
         }
-        public ActionResult BookByCategory(int id)
-        {
-            var sach = context.Saches.Where(i => i.Macd == id).ToList();
-            return View(sach);
+        //public ActionResult BookByCategory(int id)
+        //{
+        //    var sach = context.Saches.Where(i => i.Macd == id).ToList();
+        //    return View(sach);
 
-        }
+        //}
         public ActionResult ProductCategory()
         {
             var items = context.Chudes.ToList();
