@@ -1,24 +1,28 @@
-﻿@model IEnumerable<BookStore.Models.Chude>
-   
+﻿
 
-    <aside class="wedget__categories poroduct--tag">
-        <h3 class="wedget__title">Product Tags</h3>
 
-        <ul>
-            @*@{
-            var ListBookCates = ViewBag.ListBookCate as IEnumerable<Chude>;
-        }
-        @foreach (Chude i in ListBookCates)
-        {
-            <li><a href="#">@i.Tenchude</a></li>
-        }*@          
-            @foreach (var i in Model)
-            {
 
-                <li><a href="@Url.Action("Index","Books",new { id = i.Macd })">@i.Tenchude</a></li>
+@model IEnumerable<BookStore.Models.Chude>
 
+
+<aside class="wedget__categories poroduct--tag">
+    <h3 class="wedget__title">Product Tags</h3>
+
+    <ul>
+        @*@{
+                var ListBookCates = ViewBag.ListBookCate as IEnumerable<Chude>;
             }
-        </ul>
+            @foreach (Chude i in ListBookCates)
+            {
+                <li><a href="#">@i.Tenchude</a></li>
+            }*@
+        @foreach (var i in Model)
+        {
 
-    </aside>
- 
+            <li><a href="@Url.Action("Index","Books",new { id = i.Macd })">@i.Tenchude</a></li>
+
+        }
+    </ul>
+
+</aside>
+

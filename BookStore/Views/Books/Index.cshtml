@@ -3,130 +3,138 @@
 
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-
+@using PagedList;
+@using PagedList.Mvc;
 
 @using BookStore.Models
-@model IEnumerable<BookStore.Models.Sach>
+@model IPagedList<BookStore.Models.Sach>
 
-
-    <!-- End Bradcaump area -->
-    <!-- Start Shop Page -->
-    <div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
-                    <div class="shop__sidebar">
-                        @Html.Action("ProductCategory", "Books")
-                        @*Filter*@
-                       
-                        @Html.Action("GetProductTag", "Books")
-                    </div>
+@{
+    //const int itemInRow = 3;
+    //const int pageSize = 6;
+    //int pageNumber = Model.Count() / 6 + 1;
+    //int currentPage = ViewBag.currentPage;
+}
+<!-- End Bradcaump area -->
+<!-- Start Shop Page -->
+<div class="page-shop-sidebar left--sidebar bg--white section-padding--lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 order-2 order-lg-1 md-mt-40 sm-mt-40">
+                <div class="shop__sidebar">
+                    @Html.Action("ProductCategory", "Books")
+                    @*Filter*@
+                 
+                    @Html.Action("GetProductTag", "Books")
                 </div>
-                <div class="col-lg-9 col-12 order-1 order-lg-2">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
-                                <div class="shop__list nav justify-content-center" role="tablist">
-                                    <a class="nav-item nav-link active" data-toggle="tab" href="#nav-grid" role="tab"><i class="fa fa-th"></i></a>
-                                    <a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a>
-                                </div>
-                                <p>Showing 1–12 of 40 results</p>
-                                <div class="orderby__wrapper">
-                                   
-                                </div>
+            </div>
+            <div class="col-lg-9 col-12 order-1 order-lg-2">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
+                            <div class="shop__list nav justify-content-center" role="tablist">
+                                <a class="nav-item nav-link active" data-toggle="tab" href="#nav-grid" role="tab"><i class="fa fa-th"></i></a>
+                                <a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a>
                             </div>
+                          
+
                         </div>
                     </div>
-                    <div class="tab__container">
-                        <div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
-                            <div class="row">
-                                <!-- Start Single Product -->
-                                @*@{ 
+                </div>
+                <div class="tab__container">
+                    <div class="shop-grid tab-pane fade show active" id="nav-grid" role="tabpanel">
+                        <div class="product__indicator--4 arrows_style owl-carousel owl-theme">
+                            <!-- Start Single Product -->
+                            @*@{
                                     var lstAllBooks = ViewBag.ListAllBooks as IEnumerable<Sach>;
                                 }*@
-                                @foreach (Sach i in Model)
-                                {
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <div class="product">
-                                        <div class="product__thumb">
-                                            <a class="first__img" href="~/Books/Details/?id=@i.Masach"><img src="~/Content/images/books/@i.Hinhminhhoa" alt="product image"></a>
-                                            @*<a class="second__img animation1" href="single-product.html"><img src="~/Content/images/books/@i.Hinhminhhoa" alt="product image"></a>*@
-                                            <ul class="prize position__right__bottom d-flex">
-                                                <li>$@i.Giakm.00</li>
-                                                <li class="old_prize">$@i.Dongia.00</li>
-                                            </ul>
-                                            <div class="action">
-                                                <div class="actions_inner">
-                                                    <ul class="add_to_links">
-                                                        <li><a class="cart" href="cart.html"></a></li>
-                                                        <li><a class="wishlist" href="wishlist.html"></a></li>
-                                                        <li><a class="compare" href="compare.html"></a></li>
-                                                        <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"></a></li>
-                                                    </ul>
+                            @foreach (Sach i in Model)
+                            {<div class="single__product">
+                                    <!-- Start Single Product -->
+
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                                        <div class="product product__style--3">
+                                            <div class="product__thumb">
+                                                <a class="first__img" href="~/DetailProduct/Index/?id=@i.Masach"><img src="~/Content/images/books/@i.Hinhminhhoa" alt="product image"></a>
+                                                <div class="hot__box">
+                                                    <span class="hot-label">BEST SALER</span>
+                                                </div>
+                                            </div>
+                                            <div class="product__content content--center content--center">
+                                                <h4><a href="single-product.html">@i.Tensach</a></h4>
+                                                <ul class="prize d-flex">
+                                                    <li>$@i.Dongia.00</li>
+                                                    <li class="old_prize">$@i.Giakm.00</li>
+                                                </ul>
+                                                <div class="action">
+                                                    <div class="actions_inner">
+                                                        <ul class="add_to_links">
+                                                            <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
+                                                            <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
+                                                            <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+                                                            <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="product__content">
-                                            <h4><a href="single-product.html">@i.Tensach</a></h4>
-                                        </div>
                                     </div>
-                                </div>
-                                }
-                                <!-- End Single Product -->
-                           
-                            </div>
-                            <ul class="wn__pagination">
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
-                            <div class="list__view__wrapper">
-                                <!-- Start Single Product -->
-                                <div class="list__view">
-                                    <div class="thumb">
-                                        <a class="first__img" href="single-product.html"><img src="/Content/images/product/1.jpg" alt="product images"></a>
-                                        <a class="second__img animation1" href="single-product.html"><img src="/Content/images/product/2.jpg" alt="product images"></a>
-                                    </div>
-                                    <div class="content">
-                                        <h2><a href="single-product.html">adipiscing</a></h2>
-                                        <ul class="rating d-flex">
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li class="on"><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                            <li><i class="fa fa-star-o"></i></li>
-                                        </ul>
-                                        <ul class="prize__box">
-                                            <li>$111.00</li>
-                                            <li class="old__prize">$220.00</li>
-                                        </ul>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
-                                        <ul class="cart__action d-flex">
-                                            <li class="cart"><a href="cart.html">Add to cart</a></li>
-                                            <li class="wishlist"><a href="cart.html"></a></li>
-                                            <li class="compare"><a href="cart.html"></a></li>
-                                        </ul>
 
-                                    </div>
                                 </div>
-                                <!-- End Single Product -->
-                        
+                             
+                            }
+                            <!-- End Single Product -->
+
+                        </div>
+                        @Html.PagedListPager(Model, sotrang => Url.Action("Index", new { page = sotrang }),
+                       new PagedListRenderOptions()
+                       {
+                           UlElementClasses = new string[] { "pagination" },
+                           Display = PagedListDisplayMode.IfNeeded,
+                           ContainerDivClasses = new string[] { }
+                       })
+                    </div>
+                    <div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
+                        <div class="list__view__wrapper">
+                            <!-- Start Single Product -->
+                            <div class="list__view">
+                                <div class="thumb">
+                                    <a class="first__img" href="single-product.html"><img src="/Content/images/product/1.jpg" alt="product images"></a>
+                                    <a class="second__img animation1" href="single-product.html"><img src="/Content/images/product/2.jpg" alt="product images"></a>
+                                </div>
+                                <div class="content">
+                                    <h2><a href="single-product.html">adipiscing</a></h2>
+                                    <ul class="rating d-flex">
+                                        <li class="on"><i class="fa fa-star-o"></i></li>
+                                        <li class="on"><i class="fa fa-star-o"></i></li>
+                                        <li class="on"><i class="fa fa-star-o"></i></li>
+                                        <li class="on"><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                    <ul class="prize__box">
+                                        <li>$111.00</li>
+                                        <li class="old__prize">$220.00</li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum. Morbi ornare lectus quis justo gravida semper. Nulla tellus mi, vulputate adipiscing cursus eu, suscipit id nulla.</p>
+                                    <ul class="cart__action d-flex">
+                                        <li class="cart"><a href="cart.html">Add to cart</a></li>
+                                        <li class="wishlist"><a href="cart.html"></a></li>
+                                        <li class="compare"><a href="cart.html"></a></li>
+                                    </ul>
+
+                                </div>
                             </div>
+                            <!-- End Single Product -->
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Shop Page -->
-    <!-- Footer Area -->
-    
-
-
+</div>
+<!-- End Shop Page -->
+<!-- Footer Area -->
 <!-- //Main wrapper -->
 <!-- JS Files -->

@@ -16,6 +16,7 @@ namespace BookStore.Controllers
 
             ViewBag.ListBookCate = context.Chudes.Where(i => i.Tenchude != null).ToList(); ;
             ViewBag.ListAllBooks = context.Saches.ToList(); ;
+
             ViewBag.ListBookBestSale = context.Saches.OrderByDescending(i => i.Giakm / i.Dongia).ToList();
             var newbooks = context.Saches.OrderByDescending(i => i.Ngaycapnhat).Take(5).ToList();           
             return View(newbooks);

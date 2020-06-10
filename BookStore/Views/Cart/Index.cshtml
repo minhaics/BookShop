@@ -3,6 +3,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
+@using BookStore.Models
+@model IEnumerable<BookStore.Models.CartItem>
+
 
 
 <body>
@@ -10,153 +13,264 @@
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
     <!-- Main wrapper -->
+
     <div class="wrapper" id="wrapper">
-
-
-        <!-- Start Search Popup -->
-        <!-- End Search Popup -->
-        <!-- Start Bradcaump area -->
-      
-        <!-- End Bradcaump area -->
-        <!-- cart-main-area start -->
-        <div class="cart-main-area section-padding--lg bg--white">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 ol-lg-12">
-                        <form action="#">
-                            <div class="table-content wnro__table table-responsive">
-                                <table>
-                                    <thead>
-                                        <tr class="title-top">
-                                            <th class="product-thumbnail">Image</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
-                                            <th class="product-subtotal">Total</th>
-                                            <th class="product-remove">Remove</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="images/product/sm-3/1.jpg" alt="product img"></a></td>
-                                            <td class="product-name"><a href="#">Natoque penatibus</a></td>
-                                            <td class="product-price"><span class="amount">$165.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1"></td>
-                                            <td class="product-subtotal">$165.00</td>
-                                            <td class="product-remove"><a href="#">X</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="images/product/sm-3/2.jpg" alt="product img"></a></td>
-                                            <td class="product-name"><a href="#">Quisque fringilla</a></td>
-                                            <td class="product-price"><span class="amount">$50.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1"></td>
-                                            <td class="product-subtotal">$50.00</td>
-                                            <td class="product-remove"><a href="#">X</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-thumbnail"><a href="#"><img src="images/product/sm-3/3.jpg" alt="product img"></a></td>
-                                            <td class="product-name"><a href="#">Vestibulum suscipit</a></td>
-                                            <td class="product-price"><span class="amount">$50.00</span></td>
-                                            <td class="product-quantity"><input type="number" value="1"></td>
-                                            <td class="product-subtotal">$50.00</td>
-                                            <td class="product-remove"><a href="#">X</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </form>
-                        <div class="cartbox__btn">
-                            <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-                                <li><a href="#">Coupon Code</a></li>
-                                <li><a href="#">Apply Code</a></li>
-                                <li><a href="#">Update Cart</a></li>
-                                <li><a href="#">Check Out</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 offset-lg-6">
-                        <div class="cartbox__total__area">
-                            <div class="cartbox-total d-flex justify-content-between">
-                                <ul class="cart__total__list">
-                                    <li>Cart total</li>
-                                    <li>Sub Total</li>
-                                </ul>
-                                <ul class="cart__total__tk">
-                                    <li>$70</li>
-                                    <li>$70</li>
-                                </ul>
-                            </div>
-                            <div class="cart__total__amount">
-                                <span>Grand Total</span>
-                                <span>$140</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        @if (Model == null || Model.Count() == 0)
+        {
+            <div class="col-md-9 left-container">
+                <h3 class="alert alert-danger">Chưa có sản phẩm trong giỏ hàng</h3>
             </div>
-        </div>
-        <!-- cart-main-area end -->
-        <!-- Footer Area -->
-        <footer id="wn__footer" class="footer__area bg__cat--8 brown--color">
-            <div class="footer-static-top">
+        }
+        else
+        {
+            <div class="cart-main-area section-padding--lg bg--white">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12">
-                            <div class="footer__widget footer__menu">
-                                <div class="ft__logo">
-                                    <a href="index.html">
-                                        <img src="images/logo/3.png" alt="logo">
-                                    </a>
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages</p>
-                                </div>
-                                <div class="footer__content">
-                                    <ul class="social__net social__net--2 d-flex justify-content-center">
-                                        <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                                        <li><a href="#"><i class="bi bi-google"></i></a></li>
-                                        <li><a href="#"><i class="bi bi-twitter"></i></a></li>
-                                        <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="bi bi-youtube"></i></a></li>
-                                    </ul>
-                                    <ul class="mainmenu d-flex justify-content-center">
-                                        <li><a href="index.html">Trending</a></li>
-                                        <li><a href="index.html">Best Seller</a></li>
-                                        <li><a href="index.html">All Product</a></li>
-                                        <li><a href="index.html">Wishlist</a></li>
-                                        <li><a href="index.html">Blog</a></li>
-                                        <li><a href="index.html">Contact</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright__wrapper">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="copyright">
-                                <div class="copy__right__inner text-left">
-                                    <p>Copyright <i class="fa fa-copyright"></i> <a href="#">Boighor.</a> All Rights Reserved</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="payment text-right">
-                                <img src="images/icons/payment.png" alt="" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- //Footer Area -->
+                        <div class="col-md-12 col-sm-12 ol-lg-12">
+                            <form action="#">
+                                <div class="table-content wnro__table table-responsive">
+                                    <table>
+                                        <thead>
+                                            <tr class="title-top">
+                                                <th>
+                                                    <form action="#" class="form">
+                                                        <div class="checkbox">
+                                                            <input type="checkbox" id="checkboxAll" />
+                                                        </div>
+                                                    </form>
+                                                </th>
+                                                <th class="product-thumbnail">Image</th>
+                                                <th class="product-name">Product</th>
+                                                <th class="product-price">Price</th>
 
+                                                <th class="product-quantity">Quantity</th>
+                                                <th class="product-subtotal">Total</th>
+                                                <th class="product-remove">Remove</th>
+                                            </tr>
+                                        </thead>
+
+                                        @{ decimal tongTien = 0;
+                                            decimal tongSoLuong = 0;
+                                            foreach (CartItem item in Model)
+                                            {
+                                                var donGia = item.Product.Dongia;
+
+                                                tongTien += (decimal)donGia * item.Quantity;
+                                                tongSoLuong += item.Quantity;
+
+                                            }
+                                        }
+                                        @foreach (CartItem item in Model)
+                                        {
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <form action="#" class="form">
+                                                            <div class="checkbox">
+                                                                <input type="checkbox" class="checkboxItem" id="item-@item.Product.Masach" onclick="onClickSelectItem('item-@item.Product.Masach')" />
+                                                            </div>
+                                                        </form>
+                                                    </td>
+                                                    <td class="product-thumbnail"><a href="#"><img src="~/Content/images/books/@item.Product.Hinhminhhoa" alt="product img"></a></td>
+                                                    <td class="product-name"><a href="#">@(item.Product.Tensach.ToString())</a></td>
+                                                    <td class="product-price"><span class="amount">@(item.Product.Dongia.ToString())</span></td>
+
+                                                    <td class="product-quantity"><input type="number" value="@item.Quantity"></td>
+                                                    <td class="product-subtotal"> @((item.Product.Dongia * item.Quantity).ToString()) </td>
+
+                                                    <td class="product-remove"><a href="#" onclick="onRemoveItem(@item.Product.Masach)">X</a></td>
+                                                </tr>
+                                            </tbody>
+                                        }
+                                    </table>
+
+                                </div>
+                            </form>
+                            <div class="cartbox__btn">
+                                <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
+
+                                    <li> <button type="button" class="btn btn-danger deselect" onclick="onClickRemoveItemSelected()">Xóa chọn</button></li>
+                                    <li>
+                                        <div>
+                                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-success" style="font-size: 14px;"><i class="fa fa-shopping-cart"></i>Thanh toán</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-6">
+                            <div class="cartbox__total__area">
+                                <div class="cartbox-total d-flex justify-content-between">
+                                    <ul class="cart__total__list">
+                                    
+                                    </ul>
+                                
+                                </div>
+                                <div class="cart__total__amount">
+
+                                    <span>Grand Total</span>
+                                    <span>@(tongTien.ToString()+"$")/span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Phần Model hiển thị-->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <!--Dòng trên "id" phải trùng với tên của "data-target" của button Thanh toán-->
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Thanh toán</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div id="xu-ly-thanh-toan" style="display:none">
+                            Thanh toán đang được xử lý
+                        </div>
+                        <div id="thanh-toan-thanh-cong" style="display:none">
+                            Thanh toán thành công, trang sẽ tự điều hướng 
+                        </div>
+                        <div class="modal-body" id="thanh-toan">
+                            <form>
+                                <div class="form-group">
+                                    <label for="modal-name" class="col-form-label">Họ và tên:</label>
+                                    <input type="text" class="form-control" id="modal-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="modal-email" class="col-form-label">Mail:</label>
+                                    <input type="text" class="form-control" id="modal-email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="modal-phone" class="col-form-label">Số điện thoại:</label>
+                                    <input type="text" class="form-control" id="modal-phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="modal-address" class="col-form-label">Địa chỉ:</label>
+                                    <input type="text" class="form-control" id="modal-address">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="Purchase()" id="btn-thanh-toan">Thanh toán</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
-    <!-- //Main wrapper -->
+    <script>
 
+        $('#checkboxAll').click(() => {
+            if ($('#checkboxAll').is(':checked')) {
+                $('.checkboxItem').prop('checked', true)
+                isCheckedAll = true
+            } else {
+                $('.checkboxItem').prop('checked', false)
+            }
+        })
+
+        const onClickSelectItem = selector => {
+            let numberAllRow = $('.checkboxItem').length
+            if (!$(selector).is(':checked') && $('#checkboxAll').is(':checked')) {
+                $('#checkboxAll').prop('checked', false)
+            } else {
+                let numberRowIsChecked = $('.checkboxItem').filter(function () {
+                    return $(this).is(':checked')
+                }).length
+                if (numberRowIsChecked === numberAllRow) {
+                    $('#checkboxAll').prop('checked', true)
+                }
+            }
+        }
+
+        const onClickRemoveItemSelected = () => {
+            const listItemSelected = []
+            $('.checkboxItem').each(function () {
+                if ($(this).is(':checked')) {
+                    //item-id
+                    let productID = $(this).attr('id').split('-')[1]
+                    listItemSelected.push(parseInt(productID))
+                }
+            })
+            $.ajax({
+                url: '/Cart/XoaNhieuSanPham',
+                method: 'POST',
+                data: { listProduct: listItemSelected },
+                dataType: 'text',
+                success: function (response) {
+                    response = JSON.parse(response)
+                    if (response.status == true) {
+                        $(location).attr("href", '/Cart/Index')
+                    } else {
+                        alert('Xóa sản phẩm thất bại!')
+                    }
+                }
+            })
+        }
+
+
+        const onRemoveItem = productID => {
+            productID = parseInt(productID)
+            $.ajax({
+                url: '/Cart/XoaSanPham',
+                method: 'POST',
+                data: { productID },
+                dataType: 'text',
+                success: function (response) {
+                    response = JSON.parse(response)
+                    if (response.status == true) {
+                        $(location).attr("href", '/Cart/Index')
+                    } else {
+                        alert('Xóa sản phẩm thất bại!')
+                    }
+                }
+            })
+        }
+
+        const Purchase = () => {
+            var _name = $('#modal-name').val();
+            var _phone = $('#modal-phone').val();
+            var _email = $('#modal-email').val();
+            var _address = $('#modal-address').val();
+            //sử dụng jQuery để lấy giá trị, sau dấu "#" là id
+            if (_email !== "") {
+                $("#xu-ly-thanh-toan").css({ "display": "block" });
+                $("#thanh-toan").css({ "display": "none" });
+                $("#btn-thanh-toan").css({ "display": "none" });
+                $.ajax({
+                    url: '/Cart/Checkout',
+                    //sử dụng ajax để gọi tới GioHangController và Action là ThanhToan
+                    method: 'POST',
+                    data: { name: _name, phone: _phone, email: _email, address: _address },
+                    //data phải giống tên với các giá trị truyền vào ở /Cart/ThanhToan
+                    dataType: 'text',
+                    success: function (response) {
+                        response = JSON.parse(response)
+                        if (response.status == true) {
+                            $("#xu-ly-thanh-toan").css({ "display": "none" });
+                            $("#thanh-toan-thanh-cong").css({ "display": "block" });
+                            setTimeout(function () {
+                                $(location).attr("href", '/Home/Index')
+                            }, 2000);
+                        } else {
+                            $("#btn-thanh-toan").css({ "display": "block" });
+                            alert('Thanh toán thất bại!')
+                        }
+                    }
+                })
+            } else {
+                alert('Mail không được để trống!')
+            }
+        }
+
+    </script>
 
 
 </body>
